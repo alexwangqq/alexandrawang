@@ -1,0 +1,44 @@
+'homework1
+def print_string(*text,sep=" ",end="\n"):
+    print(*text,sep=sep,end=end)
+
+    
+print_string('This', 'is', 'a', 'test', sep = '-')
+
+
+'homework2
+'method1
+def f(n):
+    f=[]
+    i=0
+    while i<n:
+        if i<2:
+            f.append(1)
+        else:
+            f.append(f[i-1]+f[i-2])
+        i=i+1
+    print(f)
+f(10)
+    
+'method2
+n=int(input())
+f=[]
+i=0
+while i<n:
+    if i<2:
+        f.append(1)
+    else:
+        f.append(f[i-1]+f[i-2])
+    i=i+1
+print(f)
+
+'method3
+n=int(input())
+f=[]
+i=0
+for i in range(n):
+    if i<2:
+        f.append(1)
+    else:
+        f.append(f[i-1]+f[i-2])
+print(f)
