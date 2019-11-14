@@ -1,0 +1,91 @@
+homework1
+account_balance1=0
+class ATM:
+    def __init__(self):
+        pass
+#---------菜单---------   
+    def menu(self):
+        global account_balance1
+        option=0
+        while option!=4:
+            print("""请选择所需操作
+              1.查询余额
+              2.存款
+              3.取款
+              4.退出""")
+            option=int(input())
+            if option==1:
+                self.show()
+            elif option==2:
+                self.add()
+            elif option==3:
+                self.withdraw()
+            else:
+                self.quit()
+
+        pass
+#---------查询余额---------   
+    def show(self):
+        print("您的余额为",account_balance1)
+        pass
+
+#---------存款---------
+    def add(self):
+        global account_balance1
+        print("请输入您的存款金额")
+        addvalue=int(input())
+        account_balance1=account_balance1+addvalue
+        print("已存入，您的账户余额为",account_balance1)
+        pass
+
+#---------取款--------- 
+    def withdraw(self):
+        global account_balance1
+        print("请输入您的取款金额")
+        deductvalue=int(input())
+        if deductvalue>account_balance1:
+            print("账户余额不足")
+        else:
+            account_balance1=account_balance1-deductvalue
+            print("已取出，您的账户余额为",account_balance1)
+        pass
+
+#---------退出--------- 
+    def quit(self):
+        print("已退出")
+        pass
+    
+zhangsan=ATM()
+zhangsan.menu()
+
+homework2
+class Lijing: # 李靖
+    # 初始化函数，为每个实例创建4个参数（其中后3个参数有默认值）
+    def __init__(self, name, weapons=[], power=10): 
+        self.name = name
+        self.weapons = weapons
+        self.power = power
+
+    def count_fight(self, weapon, weapon_power):
+        self.weapons.append(weapon)
+        self.power += weapon_power  # 总战力=武器战力之和
+        
+# your code here        
+# 请你完成子类的定制（包括初始化方法和count_fight函数）
+class Nezha(Lijing): # 哪吒
+    def __init__(self,name,weapons=["混天绫", "乾坤圈"],power=50):
+        super(Nezha,self).__init__(name,weapons=weapons,power=power)
+    def count_fight(self,weapon,weapon_power):
+        self.weapons.append(weapon)
+        self.power += weapon_power
+# 通过两个实例，完成子类和父类的对比（可自行验证）
+lijing = Lijing('李靖')
+nezha = Nezha('哪吒')
+print(lijing.weapons)
+print(nezha.weapons)
+lijing.count_fight('七宝玲珑塔', 50)  # 七宝玲珑塔 战力 50
+print(lijing.weapons)
+print(lijing.power)
+nezha.count_fight('火尖枪', 40)  #
+print(nezha.weapons)
+print(nezha.power)
